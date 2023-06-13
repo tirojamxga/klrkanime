@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://i.redd.it/bpxxqqvps4h91.gif') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .form-wrapper {
+      width: 400px;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 10px;
+      color: #050C21;
+      font-size: 24px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .form-group button {
+      padding: 12px 24px;
+      background-color: #050C21;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .form-group button:hover {
+      background-color: #022A4D;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+      color: #050C21;
+      font-size: 32px;
+    }
+
+    .animated-text {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 50px;
+      animation: moveText 5s infinite;
+    }
+
+    @keyframes moveText {
+      0% {
+        transform: translateX(-50%);
+      }
+      50% {
+        transform: translateX(-10%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-wrapper">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+          <button type="submit">Login</button>
+        </div>
+      </form>
+      <p id="greeting" style="display: none;"></p>
+    </div>
+  </div>
+  
+  <div class="animated-text">
+    <p style="font-size: 50px;">Developed and Designed By: Clarc Bejey P. Tiro</p>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      var greeting = document.getElementById("greeting");
+
+      // Check if the username and password match the credentials
+      if (username === "admin" && password === "admin") {
+        greeting.style.display = "block";
+        greeting.innerText = "Login successful!";
+        greeting.style.color = "green";
+        // Redirect to the specified URL
+        window.location.href = "https://sites.google.com/view/klrkanime4322";
+      } else {
+        greeting.style.display = "block";
+        greeting.innerText = "Login failed. Invalid username or password.";
+        greeting.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>
